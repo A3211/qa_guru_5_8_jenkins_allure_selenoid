@@ -17,6 +17,7 @@ public class TestBase {
         addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
@@ -26,5 +27,6 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
+        attachVideo();
     }
 }
