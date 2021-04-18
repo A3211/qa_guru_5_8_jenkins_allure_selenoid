@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,11 +13,6 @@ import static io.qameta.allure.Allure.step;
 
 public class StudentRegistrationFormTests extends TestBase {
     Faker faker = new Faker();
-
-    @BeforeAll
-    static void setup() {
-        Configuration.startMaximized = true;
-    }
 
     @Test
     void studentRegistrationTest() {
@@ -84,7 +81,7 @@ public class StudentRegistrationFormTests extends TestBase {
             });
 
             step("Submit form", () -> {
-                $("#submit").click();
+                $("#submit1").click();
             });
         });
 
@@ -99,7 +96,7 @@ public class StudentRegistrationFormTests extends TestBase {
                     text(subject),
                     text(image),
                     text(address),
-                    text(state + "" + city));
+                    text(state + " " + city));
         });
     }
 }
